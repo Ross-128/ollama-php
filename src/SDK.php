@@ -58,6 +58,10 @@ final class SDK extends Client
             body: $payload,
         );
 
+        if($this->apiToken) {
+                $request = $request->withHeader("Authorization", $this->apiToken);
+        }
+
         try {
             $response = $this->send(
                 request: $request,
